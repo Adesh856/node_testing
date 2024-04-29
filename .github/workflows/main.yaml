@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -23,5 +22,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install dependencies
       run: npm install
-    - name: Start server
-      run: npm run server
+    - name: Start server and check log
+      run: ./start-server.sh
