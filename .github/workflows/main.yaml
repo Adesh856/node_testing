@@ -21,17 +21,12 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '18.17.0'  # Adjust based on your project's requirement
-
-      - name: Cache Node.js modules
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
       
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd $GITHUB_WORKSPACE  # Change directory to the repository root
+          npm install
+          
 
       - name: Run node application
         run: npm run server  # Ensure this script is configured correctly for deployment
