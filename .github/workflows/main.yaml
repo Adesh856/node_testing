@@ -27,4 +27,4 @@ jobs:
 
     - name: Start server in background
       run: |
-        nohup node app.js > /dev/null 2>&1 &
+        nohup node app.js 
