@@ -22,11 +22,21 @@ jobs:
         with:
           node-version: '18.17.0'  # Adjust based on your project's requirement
       
+      - name: Copy Directory
+        run: |
+          cp -r path/to/directory $GITHUB_WORKSPACE  # Replace path/to/directory with the path of the directory you want to copy
+
       - name: Install dependencies
         run: |
           cd $GITHUB_WORKSPACE  # Change directory to the repository root
           npm install
           
+      - name: Check if app.js exists
+        run: |
+          if [ ! -f "app.js" ]; then
+            echo "Error: app.js not found."
+            exit 1
+          fi
 
-      - name: Run node application
+      - name: Run Node application
         run: npm run server  # Ensure this script is configured correctly for deployment
