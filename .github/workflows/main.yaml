@@ -12,7 +12,7 @@ jobs:
   build-deploy:
     name: Build and Deploy Node App
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -20,13 +20,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18.17.0'  # Adjust based on your project's requirement
+          node-version: "18.17.0" # Adjust based on your project's requirement
 
       - name: Install dependencies
         run: |
           cd $GITHUB_WORKSPACE  # Change directory to the repository root
           npm install
-          
+
       - name: Check if app.js exists
         run: |
           if [ ! -f "app.js" ]; then
@@ -35,4 +35,4 @@ jobs:
           fi
 
       - name: Run Node application
-        run: npm run server  # Ensure this script is configured correctly for deployment
+        run: node app.js # Ensure this script is configured correctly for deployment
