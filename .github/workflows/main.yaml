@@ -21,10 +21,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '18.17.0'  # Adjust based on your project's requirement
-      
-      - name: Copy Directory
-        run: |
-          cp -r path/to/directory $GITHUB_WORKSPACE  # Replace path/to/directory with the path of the directory you want to copy
 
       - name: Install dependencies
         run: |
